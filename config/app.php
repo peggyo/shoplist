@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'shoplist'),
+    'name' => env('APP_NAME', 'mealplan'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://shoplist.dwa15peg.me'),
+    'url' => env('APP_URL', 'http://mealplan.dwa15peg.me'),
 
     /*
     |--------------------------------------------------------------------------
