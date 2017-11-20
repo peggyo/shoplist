@@ -14,7 +14,14 @@
 <body>
 
 	<header>
-
+		<nav>
+            <ul>
+                <li><a href='/'>Meals</a>
+                <li><a href='/meal/create'>Add a Meal</a>
+				<!--<li><a href='/meal/se'>Search</a>-->
+                <li><a href='/search'>Search</a>
+            </ul>
+        </nav>
 	</header>
 
 	<section>

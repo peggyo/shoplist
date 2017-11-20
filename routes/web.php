@@ -11,10 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+# Commenting out but leaving for review purposes
+#Route::get('/', function () {
+#    return view('index');
+#});
 
+# Show a list of all meals.
+Route::get('/', 'MealController@index');
+
+# Form to Create a new meal.
+Route::get('/meal/create', 'MealController@create');
+# Process the form to create the meal.
+Route::post('/meal/create/{title}','MealController@create');
+# Store the new meal in the database.
+Route::post('/meal/create', 'MealController@store');
+
+# Show the form to edit a specific meal.
+Route::get('/meal/{id}/edit', 'MealController@edit');
+# Process the form to edit a specific meal.
+Route::put('/meal/{id}', 'MealController@update');
+
+
+Route::post('/meal/{id}/update/', 'MealController@update');
+
+Route::get('/meal/{id}/detail/', 'MealController@detail');
 
 Route::get('/debug', function () {
 
@@ -41,4 +61,16 @@ Route::get('/debug', function () {
     }
 
     dump($debug);
+});
+
+Route::get('/debugbar', function () {
+
+    $data = ['foo' => 'bar'];
+    Debugbar::info($data);
+    Debugbar::info('Current environment: '.App::environment());
+    Debugbar::error('Error!');
+    Debugbar::warning('Watch out…');
+    Debugbar::addMessage('Another message', 'mylabel');
+
+    return 'Just demoing some of the features of Debugbar';
 });
