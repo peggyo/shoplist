@@ -31,6 +31,11 @@ Route::get('/meal/{id}/edit', 'MealController@edit');
 # Process the form to edit a specific meal.
 Route::put('/meal/{id}', 'MealController@update');
 
+# Form to add ingredients to a meals
+Route::get('meal/{id}/ingredients', 'MealController@ingredients');
+# Process the form to add ingredients to the meal
+Route::post('meal/{id}/add', 'MealController@add');
+
 
 Route::post('/meal/{id}/update/', 'MealController@update');
 

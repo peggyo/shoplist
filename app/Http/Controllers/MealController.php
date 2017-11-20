@@ -92,28 +92,21 @@ class MealController extends Controller
         return redirect('/meal/'.$id.'/edit');
     }
 
+    /*
+    * GET /meal/{id}/ingredients
+    */
+    public function ingredients($id)
+    {
+        $meal = Meal::find($id);
+        #dd($meal);
+
+        return view('ingredients.ingredients')->with(['meal' => $meal]);
+
+    }
+
 
 /**************************************************************************/
 
 
-    /*
-     *  Shows detail information for a meal. THIS IS IN PROGRESS.
-     *  STARTED OUT AS THE CODE FOR EDITING EXISTING MEAL, BUT STOPPED IN
-     *  FAVOR OF UPDATE - THINKING....
-     */
-    public function detail($id)
-    {
-        $meal = Meal::find($id);
-        /**********add error checking *******
-        if (!$meal) {
-            return redirect('/meal')->with('alert', 'Meal not found');
-        }
-        *************************************/
-
-        dump($meal->toArray());
-
-        return view('detail')->with(['meal' => $meal->toArray()]);
-
-        }
 
 }

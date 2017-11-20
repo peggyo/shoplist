@@ -16,6 +16,7 @@
             <h4>{{ $meal['title'] }}</h4>
             <p>{{ $meal['description'] }} ID {{$meal['id']}}</p>
             <a href='/meal/{{ $meal['id'] }}/edit'>Edit</a>
+            <a href='/meal/{{ $meal['id'] }}/ingredients'>Ingredients</a>
         </div>
     @endforeach
 
