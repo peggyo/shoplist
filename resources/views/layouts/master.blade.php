@@ -7,17 +7,25 @@
     </title>
 
 	<meta charset='utf-8'>
+	<link href="/css/meal.css" type='text/css' rel='stylesheet'>
 
     @stack('head')
 
 </head>
 <body>
 
+	@if(session('alert'))
+		<div class='alert'>
+			{{ session('alert') }}
+		</div>
+	@endif
+
+
 	<header>
 		<nav>
             <ul>
                 <li><a href='/'>Meals</a>
-                <li><a href='/meal/create'>Add a Meal</a>
+                <li><a href='/meal/create'>New Meal</a>
 				<!--<li><a href='/meal/se'>Search</a>-->
                 <li><a href='/search'>Search</a>
             </ul>
@@ -29,7 +37,7 @@
 	</section>
 
 	<footer class='copyright'>
-		&copy; {{ date('Y') }}
+		<!--&copy; {{ date('Y') }}-->
 	</footer>
 
     @stack('body')

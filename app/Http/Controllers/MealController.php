@@ -71,6 +71,23 @@ class MealController extends Controller
     }
 
     /*
+    *  /meal/{id}/delete
+    */
+    public function delete($id)
+    {
+
+        $meals = Meal::find($id);
+        #dd($meals);
+        if (!$meals) {
+            return redirect('/meal')->with('alert', 'Meal not found');
+        }
+        $title = $meals->title;
+        #dd($title);
+        $meals->delete();
+        return redirect('/')->with('alert', 'The meal '.$title.' was deleted.');
+    }
+
+    /*
     * PUT /meal/{id}
     */
     public function update(Request $request, $id)
