@@ -15,6 +15,7 @@ class MealController extends Controller
     public function index()
     {
         $meals = Meal::get();
+
         #return $meals;
         return view('index')->with([
             'meals' => $meals
@@ -70,20 +71,40 @@ class MealController extends Controller
 
     }
 
+
+    /*
+    *  /meal/{id}/confirm
+    */
+    public function confirm($id)
+    {
+
+        $meal = Meal::find($id);
+        #dd($meal);
+        if (!$meal) {
+            return redirect('/meal')->with('alert', 'Meal not found');
+        }
+        $title = $meal->title;
+        #dump($title);
+        return view('delete')->with([
+            'meal' => $meal,
+            'previousUrl' => url()->previous() == url()->current() ? '/' : url()->previous(),
+        ]);
+
+    }
+
     /*
     *  /meal/{id}/delete
     */
     public function delete($id)
     {
-
-        $meals = Meal::find($id);
-        #dd($meals);
-        if (!$meals) {
+        $meal = Meal::find($id);
+        #dd($meal);
+        if (!$meal) {
             return redirect('/meal')->with('alert', 'Meal not found');
         }
-        $title = $meals->title;
+        $title = $meal->title;
         #dd($title);
-        $meals->delete();
+        $meal->delete();
         return redirect('/')->with('alert', 'The meal '.$title.' was deleted.');
     }
 

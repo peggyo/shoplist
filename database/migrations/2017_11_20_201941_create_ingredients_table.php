@@ -22,11 +22,11 @@ class CreateIngredientsTable extends Migration
 		    # keep track of changes to a row
             $table->timestamps();
 
-            $table->string('item');             # name of the ingredient item.
-            $table->decimal('quantity');        # quantity of item needed
-            $table->string('unit');             # unit of measure. Examples: cup, quart, ounce, stalk, medium, gram, tsp, ...
-            $table->string('category');         # grocery store category? Maybe should be department, still not sure on this one.
-            $table->integer('meal');            # links to the meal id for which this is an ingredient.
+            $table->string('title');                    # name of the ingredient item.
+            $table->decimal('quantity',8,3)->nullable();    # quantity of item needed
+            $table->string('unit')->nullable();         # unit of measure. Examples: cup, quart, ounce, stalk, medium, gram, tsp, ...
+            $table->string('department');               # grocery store category? Maybe should be department, still not sure on this one.
+            $table->integer('meal_id');                 # links to the meal id for which this is an ingredient.
 
         });
     }

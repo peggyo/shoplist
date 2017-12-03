@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Meal extends Model
 {
+    /*
+    * Relationship method
+    */
+    public function ingredients()
+    {
+        # Meal has many Ingredients
+        # Define a one-to-many relationship.
+        return $this->hasMany('App\Ingredient');
+    }
+    
     //
     /* Dev Tool copied from Foobooks to assist in debugging.
     * Dump the essential details of meals to the page

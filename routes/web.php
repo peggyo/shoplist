@@ -32,6 +32,7 @@ Route::get('/meal/{id}/edit', 'MealController@edit');
 Route::put('/meal/{id}', 'MealController@update');
 
 # Delete a specific meal
+Route::any('/meal/{id}/confirm', 'MealController@confirm');
 Route::any('/meal/{id}/delete', 'MealController@delete');
 
 # Form to add ingredients to a meals
