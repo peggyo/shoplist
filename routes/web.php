@@ -16,6 +16,8 @@
 #    return view('index');
 #});
 
+# MEALS:
+
 # Show a list of all meals.
 Route::get('/', 'MealController@index');
 
@@ -35,15 +37,20 @@ Route::put('/meal/{id}', 'MealController@update');
 Route::any('/meal/{id}/confirm', 'MealController@confirm');
 Route::any('/meal/{id}/delete', 'MealController@delete');
 
-# Form to add ingredients to a meals
-Route::get('meal/{id}/ingredients', 'MealController@ingredients');
-# Process the form to add ingredients to the meal
-Route::post('meal/{id}/add', 'MealController@add');
-
-
 Route::post('/meal/{id}/update/', 'MealController@update');
-
 Route::get('/meal/{id}/detail/', 'MealController@detail');
+
+# INGREDIENTS:
+
+# Form to add ingredients to a meals
+Route::get('meal/{id}/ingredients', 'IngredientController@ingredients');
+# Process the form to add ingredients to the meal
+Route::get('meal/{id}/add', 'IngredientController@add');
+Route::post('meal/add', 'IngredientController@store');
+
+Route::get('ingredient/{id}/delete','IngredientController@delete');
+
+# DEBUGGING TOOLS:
 
 Route::get('/debug', function () {
 

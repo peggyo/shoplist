@@ -13,8 +13,7 @@
 
     @foreach($meals as $key => $meal)
         <div class='meallist'>
-            <h4>{{ $meal['title'] }}</h4>
-            <p>{{ $meal['description'] }} ID {{$meal['id']}}</p>
+            <h5>{{ $meal['title'].': '. $meal['description'] }}</h5>
             <a href='/meal/{{ $meal['id'] }}/edit'> Edit </a> |
             <a href='/meal/{{ $meal['id'] }}/confirm'> Delete </a> |
             <a href='/meal/{{ $meal['id'] }}/ingredients'> Ingredients </a>
