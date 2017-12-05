@@ -21,7 +21,7 @@
             <input name='description' id='description' type='text' value=''>
          </div>
 
-         <input type='submit'/>
+         <input type='submit' value='Save Meal'/>
     </form>
 
     @if(isset($title))

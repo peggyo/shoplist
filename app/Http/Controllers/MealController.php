@@ -52,8 +52,7 @@ class MealController extends Controller
         $meal->title = $request->input('title');
         $meal->description = $request->input('description');
         $meal->save();
-        dump($meal->toArray());
-        dump($title);
+        #dump($meal->toArray());
         return view('create')->with([
             'title' => $title
         ]);
@@ -130,17 +129,6 @@ class MealController extends Controller
         return redirect('/meal/'.$id.'/edit');
     }
 
-    /*
-    * GET /meal/{id}/ingredients
-    */
-    public function ingredients($id)
-    {
-        $meal = Meal::find($id);
-        #dd($meal);
-
-        return view('ingredients.ingredients')->with(['meal' => $meal]);
-
-    }
 
 
 /**************************************************************************/

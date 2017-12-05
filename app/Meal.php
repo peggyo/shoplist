@@ -15,8 +15,9 @@ class Meal extends Model
         # Define a one-to-many relationship.
         return $this->hasMany('App\Ingredient');
     }
-    
-    //
+
+
+    //******************************************************
     /* Dev Tool copied from Foobooks to assist in debugging.
     * Dump the essential details of meals to the page
     * Used when practicing queries and you want to quickly see the meals in the database

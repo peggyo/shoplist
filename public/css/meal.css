@@ -18,6 +18,14 @@ nav ul li {
 
 }
 
+h4 {
+    margin-top: .5em;
+    margin-right: 0;
+    margin-bottom: .5em;
+    margin-left: 0;
+
+}
+
 div.meallist {
   float: right;
   width: 85%;
@@ -45,6 +53,11 @@ div.meallist hr {
 }
 
 div.meallist a {
-    color: red;
-    font-size: x-small;
+    color: blue;
+    font-size: small;
+    padding: t r b l
+    padding-top: 0;
+    padding-right: 4em;
+    padding-bottom: 0;
+    padding-left: 0;
 }

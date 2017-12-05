@@ -16,11 +16,11 @@
     <form method='POST' action='/meal/{{ $meal->id }}/delete'>
         {{ method_field('delete') }}
         {{ csrf_field() }}
-        <input type='submit' value='Yes, delete it!' class='btn btn-danger btn-small'>
+        <input type='submit' value='Confirm Deletion!'>
     </form>
 
     <p class='cancel'>
-        <a href='{{ $previousUrl }}'>No, I changed my mind.</a>
+        <a href='{{ $previousUrl }}'>Cancel Deletion.</a>
     </p>
 
 @endsection

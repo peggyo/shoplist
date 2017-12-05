@@ -27,7 +27,7 @@
             <input name='description' id='description' type='text'value='{{ old('description', $meal->description) }}'>
          </div>
 
-         <input type='submit'/>
+         <input type='submit' value='Save Changes'/>
     </form>
 
     @if(isset($title))

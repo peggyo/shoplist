@@ -10,14 +10,18 @@
 
 @section('content')
     <h1>Ingredients for {{ $meal->title }}</h1>
+    <p>{{ $meal->description }}</p>
+    <a href='/meal/{{ $meal->id }}/add'> Add Ingredients </a>
+    <hr>
 
     <div class='ingredlist'>
-        @foreach($ingredients as $key => $ingredient)
+        @if(isset($ingredients))
+            @foreach($ingredients as $key => $ingredient)
                 <p>{{ $ingredient['title'].', '.$ingredient['quantity'].' '.$ingredient['unit'].' '}}
-                    <a href='/ingredient/{{ $ingredient['id'] }}/delete'>(remove)</a>
+                <a href='/ingredient/{{ $ingredient['id'] }}/delete'>(remove)</a>
                 </p>
-        @endforeach
-        <a href='/meal/{{ $meal->id }}/add'> Add </a>
+            @endforeach
+        @endif
     </div>
 
 

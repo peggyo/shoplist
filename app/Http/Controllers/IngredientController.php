@@ -16,16 +16,22 @@ class IngredientController extends Controller
     {
         $meal = Meal::find($id);
         #dump($meal);
+
         $ingredients = Ingredient::where('meal_id','=',$id)->get();
-        #dd($ingredients->toArray());
-        #dump($meal->id);
+
+        # Adding zero to the quantity internally casts the number to remove leading and trailing zeros for display
+        foreach ($ingredients as $ingredient) {
+            if ($ingredient->quantity) {
+                $ingredient->quantity += 0;
+            }
+        }
 
         return view('ingredients.ingredients')->with(            [
                 'meal' => $meal,
                 'ingredients' => $ingredients
             ]);
 
-    }
+     }
 
     /*
     * GET /meal/{id}/add
@@ -33,9 +39,8 @@ class IngredientController extends Controller
     public function add($id)
     {
         $meal = Meal::find($id);
-        #dump($meal);
+
         $ingredients = Ingredient::where('meal_id','=',$id)->get();
-        #dd($ingredients->toArray());
 
         return view('ingredients.add')->with(            [
                 'meal' => $meal,
@@ -48,15 +53,18 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        /*
+
         $this->validate($request, [
-           'title' => 'required|min:5',
-           'description' => 'required',
+           'title' => 'required',
+           'quantity' => 'numeric|min:0.1|max:300|nullable',
+           'unit' => 'nullable',
+           'department' => 'required'
        ]);
-       */
+
         $meal_id = $request->input('meal_id');
         #dump($meal_id);
-        $title = $request->input('title');
+        $meal = Meal::where('id', '=', $meal_id)->first();
+        #$title = $request->input('title');
 
         # Instantiate a new Meal Model object
         $ingredient = new Ingredient();
@@ -65,11 +73,12 @@ class IngredientController extends Controller
         $ingredient->quantity = $request->input('quantity');
         $ingredient->unit = $request->input('unit');
         $ingredient->department = $request->input('department');
-        $ingredient->meal_id = $request->input('meal_id');
+        #$ingredient->meal_id = $request->input('meal_id');
+        #dd($meal);
+        $ingredient->meal()->associate($meal);
 
         $ingredient->save();
-        #dump($ingredient->toArray());
-        #dump($title);
+
         return redirect('/meal/'.$meal_id.'/add');
 
     }
@@ -81,13 +90,14 @@ class IngredientController extends Controller
     {
 
         $ingredient = Ingredient::find($id);
-        #dd($ingredient);
+
         if (!$ingredient) {
             return redirect('/ingredients/{id}/delete')->with('alert', 'Ingredient not found');
         }
+
         $title = $ingredient->title;
         $meal_id = $ingredient->meal_id;
-        #dump($meal_id);
+
         $ingredient->delete();
 
         return redirect('/meal/'.$meal_id.'/ingredients');
