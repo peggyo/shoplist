@@ -16,6 +16,13 @@ class Meal extends Model
         return $this->hasMany('App\Ingredient');
     }
 
+    public function selections()
+    {
+        # Comment from lecture/foobooks notes:
+        # With timestamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
+        return $this->belongsToMany('App\Selection')->withTimestamps();
+    }
+
 
     //******************************************************
     /* Dev Tool copied from Foobooks to assist in debugging.

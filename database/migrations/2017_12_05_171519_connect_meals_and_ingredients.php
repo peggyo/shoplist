@@ -34,9 +34,11 @@ class ConnectMealsAndIngredients extends Migration
             # combine tablename + fk field name + the word "foreign"
             $table->dropForeign('ingredients_meal_id_foreign');
             # Note, example in foobooks drops the column, but I think I only need to drop the FK
-            # I did not have to change my meals table from original as done in Foobooks.
-            # May remove line commented out below, after testing
-            #$table->dropColumn('author_id');
+            # I did not have to change my meals table from original as done in Foobooks in
+            # the up() method where the column was added. I had designed my ingredients table to
+            # include it from the beginning.
+            # May remove line commented out below, after testing, but I think this will stand.
+            #$table->dropColumn('meal_id');
         });
     }
 }

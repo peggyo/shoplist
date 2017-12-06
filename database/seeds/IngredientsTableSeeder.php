@@ -15,6 +15,7 @@ class IngredientsTableSeeder extends Seeder
         //
 
         $ingredients = [
+            # Easy Cheese Pizza
             ['Pizza Dough', 1, 'package','Deli', '6'],
             ['Pizza Sauce', 1, 'jar','Grocery', '6'],
             ['Mozzarella Cheese', 8, 'oz','Dairy', '6'],
