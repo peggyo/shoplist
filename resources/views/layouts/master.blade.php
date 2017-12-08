@@ -26,7 +26,8 @@
             <ul>
                 <li><a href='/'>Meals</a>
                 <li><a href='/meal/create'>Add Meal</a>
-				<!--<li><a href='/meal/se'>Search</a>-->
+				<li><a href='/selections/'>Shopping Lists</a>
+				<li><a href='/selections/createlist'>New List</a>
             </ul>
         </nav>
 	</header>

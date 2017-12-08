@@ -28,9 +28,7 @@ class MealController extends Controller
      */
     public function create()
     {
-
         return view('create');
-
     }
 
     /*
@@ -126,7 +124,8 @@ class MealController extends Controller
         $meal->save();
 
         #return redirect('/meal/'.$id.'/edit')->with('alert', 'Your changes were saved.');
-        return redirect('/meal/'.$id.'/edit');
+        #return redirect('/meal/'.$id.'/edit');
+        return redirect('/meal/'.$id.'/edit')->with('alert', 'Your changes were saved.');
     }
 
 

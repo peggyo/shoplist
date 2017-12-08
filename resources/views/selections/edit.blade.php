@@ -5,12 +5,12 @@
 @endpush
 
 @section('title')
-    Edit Meal
+    Edit List Name
 @endsection
 
 @section('content')
-    <h1>Edit Meal</h1>
-    <form method='POST' action='/meal/{{ $meal->id }}'>
+    <h1>Edit List Name</h1>
+    <form method='POST' action='/selections/{{ $selection->id }}'>
         <!-- use method spoofing to replace POST with PUT -->
 
         {{ method_field('PUT') }}
@@ -18,20 +18,17 @@
         <!-- handles CSRF protection -->
         {{ csrf_field() }}
 
-        <div class='form-group'>
-            <label for='title'>Meal:</label>
-            <input name='title' id='title' type='text' value='{{ old('title', $meal->title) }}'>
+         <div class='form-group'>
+            <label for='title'>List:</label>
+            <input name='title' id='title' type='text' value='{{ old('title', $selection->title) }}'>
             <!--<span class="hint">(Required)</span>-->
-
-            <label for='description'>Description:</label>
-            <input name='description' id='description' type='text'value='{{ old('description', $meal->description) }}'>
          </div>
 
          <input type='submit' value='Save Changes'/>
     </form>
 
     @if(isset($title))
-        <h4>Changed meal name to {{ $title }}.</h4>
+        <h4>Change List name to {{ $title }}.</h4>
     @endif
     @if(count($errors) > 0)
         <ul class='error-group'>

@@ -26,11 +26,22 @@ h4 {
 
 }
 
-div.meallist {
+div.mainlist {
   float: right;
   width: 85%;
 }
 
+div.duoleft {
+    float: left;
+    width: 25%;
+    font-size: small;
+}
+
+div.duoright {
+    float: right,
+    width: 25%;
+    font-size: small;
+}
 
 div.ingredlist {
   float: right;
@@ -44,7 +55,7 @@ div.currentlist {
 }
 
 
-div.meallist hr {
+div.mainlist hr {
     width: 96%;
     margin-top: 1%;
     margin-right: 5%;
@@ -52,7 +63,7 @@ div.meallist hr {
     margin-bottom: auto;
 }
 
-div.meallist a {
+div.mainlist a {
     color: blue;
     font-size: small;
     padding: t r b l

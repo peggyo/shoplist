@@ -1,31 +1,24 @@
 @extends('layouts.master')
 
-@push('head')
-    <!--<link href='/css/whoknows?.css' rel='stylesheet'>-->
-@endpush
-
 @section('title')
-    Add a Meal
+    Add a List
 @endsection
 
 @section('content')
-    <h1>New Meal</h1>
-    <form method='POST' action='/meal/create'>
+    <h1>New List</h1>
+    <form method='POST' action='/selections/createlist'>
         {{ csrf_field() }}
         <div class='form-group'>
-            <label for='title'>Meal:</label>
+            <label for='title'>List:</label>
             <input name='title' id='title' type='text' value=''>
             <!--<span class="hint">(Required)</span>-->
-
-            <label for='description'>Description:</label>
-            <input name='description' id='description' type='text' value=''>
          </div>
-     </br>
-         <input type='submit' value='Save Meal'/>
+         </br>
+         <input type='submit' value='Save List'/>
     </form>
 
     @if(isset($title))
-        <h4>Added {{ $title }} to your meal set.</h4>
+        <h4>Added {{ $title }} to your set of Shopping Lists.</h4>
     @endif
     @if(count($errors) > 0)
         <ul class='error-group'>

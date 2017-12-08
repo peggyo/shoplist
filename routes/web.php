@@ -16,6 +16,7 @@
 #    return view('index');
 #});
 
+#===============================================================================
 # MEALS:
 
 # Show a list of all meals.
@@ -32,14 +33,19 @@ Route::post('/meal/create', 'MealController@store');
 Route::get('/meal/{id}/edit', 'MealController@edit');
 # Process the form to edit a specific meal.
 Route::put('/meal/{id}', 'MealController@update');
+Route::post('/meal/{id}/edit','MealController@edit');
 
 # Delete a specific meal
 Route::any('/meal/{id}/confirm', 'MealController@confirm');
 Route::any('/meal/{id}/delete', 'MealController@delete');
 
-Route::post('/meal/{id}/update/', 'MealController@update');
-Route::get('/meal/{id}/detail/', 'MealController@detail');
+# I think these were added and then I changed course, but leaving until I am sure removing them is okay.
+# By commenting them out, I can test and make sure nothing 'dies' - The controller doesn't have a
+# detail method, so that's pretty certain, but less certain about update.
+#Route::post('/meal/{id}/update/', 'MealController@update');
+#Route::get('/meal/{id}/detail/', 'MealController@detail');
 
+#===============================================================================
 # INGREDIENTS:
 
 # Form to add ingredients to a meals
@@ -50,7 +56,32 @@ Route::post('meal/add', 'IngredientController@store');
 
 Route::get('ingredient/{id}/delete','IngredientController@delete');
 
-# DEBUGGING TOOLS:
+#===============================================================================
+# SELECTIONS: (these are lists, but list is a reserved word)
+# Show a list of all selections.
+Route::get('/selections/', 'SelectionController@catalog');
+
+# Form to Create a new selection.
+Route::get('selections/createlist', 'SelectionController@createlist');
+# Process the form to create the selection.
+Route::post('selections/createlist/{title}','SelectionController@createlist');
+# Store the new selection in the database.
+Route::post('selections/createlist', 'SelectionController@storelist');
+
+# Show the form to edit a specific selection.
+Route::get('selections/{id}/edit', 'SelectionController@edit');
+# Process the form to edit a specific selection.
+Route::put('selections/{id}', 'SelectionController@update');
+
+# Delete a specific selection
+Route::any('selections/{id}/confirm', 'SelectionController@confirm');
+Route::any('selections/{id}/delete', 'SelectionController@delete');
+
+# Attach or Detach Meals to a Selection (Shopping List)
+Route::get('/selections/{id}/meals', 'SelectionController@maintain');
+
+#===============================================================================
+# DEBUGGING TOOLS:   From course notes, and useful:
 
 Route::get('/debug', function () {
 
@@ -59,7 +90,7 @@ Route::get('/debug', function () {
         'Database defaultStringLength' => Illuminate\Database\Schema\Builder::$defaultStringLength,
     ];
 
-    /*
+    /* From course notes:
     The following commented out line will print your MySQL credentials.
     Uncomment this line only if you're facing difficulties connecting to the
     database and you need to confirm your credentials. When you're done
