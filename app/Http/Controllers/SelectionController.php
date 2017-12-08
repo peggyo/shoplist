@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Meal;
 use App\Selection;
+use App\Ingredient;
 
 class SelectionController extends Controller
 {
@@ -70,6 +71,26 @@ class SelectionController extends Controller
     }
 
     /*
+     * Save the data for the new selection to the database.
+     */
+    public function updatelist(Request $request, $id)
+    {
+        $this->validate($request, [
+           'title' => 'required|min:5'
+        ]);
+
+        # Find the Selection Model object to update
+        $selection = Selection::find($id);
+        if (!$selection) {
+            return redirect('/selections')->with('alert', 'Shopping List not found');
+        }
+        $selection->title = $request->input('title');
+        $selection->save();
+        return redirect('/selections/')->with('alert', 'The selection was updated.');
+
+    }
+
+    /*
     *  /selections/{id}/confirm
     */
     public function confirm($id)
@@ -99,32 +120,29 @@ class SelectionController extends Controller
             return redirect('/selection')->with('alert', 'Shopping List not found');
         }
         $title = $selection->title;
+        $selection->meals()->detach();
         $selection->delete();
         return redirect('/selections/')->with('alert', 'The selection '.$title.' was deleted.');
     }
 
     /*
     *  /selection/{id}/meals
+    *  Display a page for users to select meals to add or remove from the
+    *  Selection (list) identified by $id
     */
     public function maintain($id)
     {
+        #dump($id);
+        # array to hold meal for those in the selection. Used to find meals both not in this selection AND in no selection.
         $inmealsarr = [];
 
         $selection = Selection::where('id', '=', $id)->first();
-
         foreach ($selection->meals as $meal) {
             $inmealsarr[] = $meal->id;
         }
-        #dump($inmealsarr);
 
-        $inmeals = $selection->meals;
-        #dump($inmeals);
-        $outmeals = Meal::whereNotIn('id', $inmealsarr)->get();
-        #dd($outmeals);
-        #dump($selection);
-        #dump($inmeals);
-        #dump($outmeals);
-        #dd('end');
+        $inmeals = $selection->meals;                               # meals in this selection
+        $outmeals = Meal::whereNotIn('id', $inmealsarr)->get();     # meals not in this and/or any selection
 
         return view('selections.selectmeals')->with(['selection' => $selection,
                                                      'inmeals' => $inmeals,
@@ -132,4 +150,63 @@ class SelectionController extends Controller
 
     }
 
+    /*
+    *  /selection/{id}/{mealid}/moveout
+    */
+    public function moveout($id, $mealid)
+    {
+        # First get the selection list
+        $selection = Selection::find($id);
+
+        $meal = Meal::where('id', '=', $mealid)->first();
+        $selection->meals()->detach($meal);
+
+        return redirect('/selections/'.$id.'/meals');
+
+    }
+
+    /*
+    *  /selection/{id}/{mealid}/movein
+    */
+    public function movein($id, $mealid)
+    {
+        # First get the selection list
+        $selection = Selection::find($id);
+
+        $meal = Meal::where('id', '=', $mealid)->first();
+        $selection->meals()->save($meal);
+
+        return redirect('/selections/'.$id.'/meals');
+
+    }
+
+    /*
+    *
+    * Generate a list of ingredients
+    */
+    public function shoplist($id)
+    {
+        #dump($id);
+        # array to hold meal for those in the selection. Used to find meals both not in this selection AND in no selection.
+        $inmealsarr = [];
+
+        $selection = Selection::where('id', '=', $id)->first();
+        foreach ($selection->meals as $meal) {
+            $inmealsarr[] = $meal->id;
+        }
+
+        $ingredients = Ingredient::whereIn('meal_id', $inmealsarr)->orderBy('department', 'DESC')->get();     # meals not in this and/or any selection
+
+        # Adding zero to the quantity internally casts the number to remove leading and trailing zeros for display
+        foreach ($ingredients as $ingredient) {
+            if ($ingredient->quantity) {
+                $ingredient->quantity += 0;
+            }
+        }
+
+        #dd($ingredients->toArray());
+
+        return view('selections.shoplist')->with(['ingredients' => $ingredients]);
+
+     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Meal;
+use App\Ingredient;
+use App\Selection;
 
 class MealController extends Controller
 {
@@ -101,6 +103,12 @@ class MealController extends Controller
         }
         $title = $meal->title;
         #dd($title);
+
+        # Must also delete any associated Ingredients
+        $ingredients = Ingredient::where('meal_id', '=', $id);
+        #dd($ingredients);
+        $ingredients->delete();
+        $meal->selections()->detach();
         $meal->delete();
         return redirect('/')->with('alert', 'The meal '.$title.' was deleted.');
     }
@@ -115,16 +123,12 @@ class MealController extends Controller
         'description' => 'required',
         ]);
 
-        echo 'in update';
-
         $meal = Meal::find($id);
 
         $meal->title = $request->input('title');
         $meal->description = $request->input('description');
         $meal->save();
 
-        #return redirect('/meal/'.$id.'/edit')->with('alert', 'Your changes were saved.');
-        #return redirect('/meal/'.$id.'/edit');
         return redirect('/meal/'.$id.'/edit')->with('alert', 'Your changes were saved.');
     }
 

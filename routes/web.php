@@ -71,14 +71,19 @@ Route::post('selections/createlist', 'SelectionController@storelist');
 # Show the form to edit a specific selection.
 Route::get('selections/{id}/edit', 'SelectionController@edit');
 # Process the form to edit a specific selection.
-Route::put('selections/{id}', 'SelectionController@update');
+Route::put('selections/{id}', 'SelectionController@updatelist');
 
 # Delete a specific selection
 Route::any('selections/{id}/confirm', 'SelectionController@confirm');
 Route::any('selections/{id}/delete', 'SelectionController@delete');
 
 # Attach or Detach Meals to a Selection (Shopping List)
-Route::get('/selections/{id}/meals', 'SelectionController@maintain');
+Route::any('/selections/{id}/meals', 'SelectionController@maintain');
+Route::any('/selections/{id}/{mealid}/moveout','SelectionController@moveout');
+Route::any('/selections/{id}/{mealid}/movein','SelectionController@movein');
+
+# Generate a Shopping List of INGREDIENTS
+Route::get('/selections/{id}/shop', 'SelectionController@shoplist');
 
 #===============================================================================
 # DEBUGGING TOOLS:   From course notes, and useful:

@@ -12,6 +12,7 @@
     <h1>Confirm deletion</h1>
 
     <p>Are you sure you want to delete <strong>{{ $selection->title }}</strong>?</p>
+    <p>All meal associations will also be removed.</p>
 
     <form method='POST' action='/selections/{{ $selection->id }}/delete'>
         {{ method_field('delete') }}

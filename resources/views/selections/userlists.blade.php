@@ -20,7 +20,8 @@
             <h4>{{ $selection['title']}}</h4>
             <a href='/selections/{{ $selection['id'] }}/edit'> Rename </a> |
             <a href='/selections/{{ $selection['id'] }}/confirm'> Delete </a>  |
-            <a href='/selections/{{ $selection['id'] }}/meals'> Meals </a>
+            <a href='/selections/{{ $selection['id'] }}/meals'> Meals </a>  |
+            <a href='/selections/{{ $selection['id'] }}/shop'> Shopping List </a>
             <hr>
         </div>
     @endforeach

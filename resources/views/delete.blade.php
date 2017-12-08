@@ -12,6 +12,8 @@
     <h1>Confirm deletion</h1>
 
     <p>Are you sure you want to delete <strong>{{ $meal->title }}</strong>?</p>
+    <p>Meal will be deleted from all shopping lists</p>
+    <p>All ingredients for {{$meal->title}} will be deleted.</p>
 
     <form method='POST' action='/meal/{{ $meal->id }}/delete'>
         {{ method_field('delete') }}
