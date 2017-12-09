@@ -1,0 +1,97 @@
+nav {
+    border-right:1px solid #eee;
+    padding:5px;
+    margin-top: 10%;
+    margin-right: 3%;
+    float: left;
+    clear: right;
+    width: 10%;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    padding-top: 3px;
+    padding-bottom: 5px;
+
+}
+
+h4 {
+    margin-top: .5em;
+    margin-right: 0;
+    margin-bottom: .5em;
+    margin-left: 0;
+}
+
+h3 {
+    margin-top: .5em;
+    margin-right: 0;
+    margin-bottom: .5em;
+    margin-left: 0;
+    padding: 0,0,0,0;
+}
+
+div.mainlist {
+  float: right;
+  width: 85%;
+}
+
+div.duoleft {
+    float: left;
+    width: 25%;
+    font-size: medium;
+}
+
+div.duoright {
+    float: right,
+    width: 25%;
+    font-size: medium;
+}
+
+div.ingredlist {
+  float: right;
+  width: 85%;
+}
+
+div.currentlist {
+    float: right;
+    width: 70%;
+    font-size: small;
+}
+
+
+div.mainlist hr {
+    width: 96%;
+    margin-top: 1%;
+    margin-right: 5%;
+    margin-left: 0;
+    margin-bottom: auto;
+}
+
+div.mainlist a {
+    color: blue;
+    font-size: small;
+    padding-top: 0;
+    padding-right: 4em;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+div.detaillist a {
+    color: blue;
+    font-size: small;
+    padding-top: 0;
+    padding-right: 4em;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+div.detaillist hr {
+    width: 80%;
+    margin-top: 1%;
+    margin-right: 5%;
+    margin-left: 0;
+    margin-bottom: 0;
+}

@@ -7,7 +7,7 @@
     </title>
 
 	<meta charset='utf-8'>
-	<link href="/css/meal.css" type='text/css' rel='stylesheet'>
+	<link href="/css/mealdev.css" type='text/css' rel='stylesheet'>
 
     @stack('head')
 
@@ -19,7 +19,6 @@
 			{{ session('alert') }}
 		</div>
 	@endif
-
 
 	<header>
 		<nav>
