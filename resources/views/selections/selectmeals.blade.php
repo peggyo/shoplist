@@ -20,7 +20,7 @@
 
         @foreach($outmeals as $key => $outmeal)
             <div class=''>
-                <p>{{ $outmeal['title'] }}<a href='/selections/{{$selection->id}}/{{ $outmeal['id'] }}/movein'> Add > </a></p>
+                <p>{{ $outmeal['title'] }}<a href='/selections/{{$selection->id}}/{{ $outmeal['id'] }}/movein'> Add => </a></p>
             </div>
         @endforeach
 
@@ -34,7 +34,7 @@
 
         @foreach($inmeals as $key => $inmeal)
             <div class=''>
-                <p><a href='/selections/{{ $selection->id}}/{{ $inmeal['id'] }}/moveout'> < Remove </a>{{ $inmeal['title'] }}</p>
+                <p><a href='/selections/{{ $selection->id}}/{{ $inmeal['id'] }}/moveout'> <= Remove </a>{{ $inmeal['title'] }}</p>
             </div>
         @endforeach
     </div>

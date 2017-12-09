@@ -12,7 +12,6 @@
     <h1>Edit Meal</h1>
     <form method='POST' action='/meal/{{ $meal->id }}'>
         <!-- use method spoofing to replace POST with PUT -->
-
         {{ method_field('PUT') }}
 
         <!-- handles CSRF protection -->

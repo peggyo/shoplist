@@ -17,10 +17,10 @@ class MealSelectionTableSeeder extends Seeder
         # The *key* will be the meal title, and the *value* will be an array of selections.
         # Note: Not all meals have selections. All selections do have meals. Change in future???
         $meals = [
-            'Chicken Cacciatore' => ['List One', 'List Three'],
-            'Beef or Chicken with Broccoli' => ['List Two', 'List Three'],
-            'Artichokes a la Polita' => ['List One'],
-            'Easy Cheese Pizza' => ['List One', 'List Two', 'List Three']
+            'Chicken Cacciatore' => ['Quick Meals', 'Freezer Meals'],
+            'Beef or Chicken with Broccoli' => ['Dec. 10 Ideas', 'Freezer Meals'],
+            'Artichokes a la Polita' => ['Quick Meals'],
+            'Easy Cheese Pizza' => ['Quick Meals', 'Dec. 10 Ideas', 'Freezer Meals']
         ];
 
         # Now loop through the above array, creating a new pivot for each meal to selection

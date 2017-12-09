@@ -23,7 +23,14 @@ h4 {
     margin-right: 0;
     margin-bottom: .5em;
     margin-left: 0;
+}
 
+h3 {
+    margin-top: .5em;
+    margin-right: 0;
+    margin-bottom: .5em;
+    margin-left: 0;
+    padding: 0,0,0,0;
 }
 
 div.mainlist {
@@ -34,13 +41,13 @@ div.mainlist {
 div.duoleft {
     float: left;
     width: 25%;
-    font-size: small;
+    font-size: medium;
 }
 
 div.duoright {
     float: right,
     width: 25%;
-    font-size: small;
+    font-size: medium;
 }
 
 div.ingredlist {
@@ -66,9 +73,25 @@ div.mainlist hr {
 div.mainlist a {
     color: blue;
     font-size: small;
-    padding: t r b l
     padding-top: 0;
     padding-right: 4em;
     padding-bottom: 0;
     padding-left: 0;
+}
+
+div.detaillist a {
+    color: blue;
+    font-size: small;
+    padding-top: 0;
+    padding-right: 4em;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+div.detaillist hr {
+    width: 80%;
+    margin-top: 1%;
+    margin-right: 5%;
+    margin-left: 0;
+    margin-bottom: 0;
 }

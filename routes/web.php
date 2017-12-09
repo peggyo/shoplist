@@ -33,11 +33,11 @@ Route::post('/meal/create', 'MealController@store');
 Route::get('/meal/{id}/edit', 'MealController@edit');
 # Process the form to edit a specific meal.
 Route::put('/meal/{id}', 'MealController@update');
-Route::post('/meal/{id}/edit','MealController@edit');
+Route::put('/meal/{id}/edit','MealController@edit');
 
 # Delete a specific meal
-Route::any('/meal/{id}/confirm', 'MealController@confirm');
-Route::any('/meal/{id}/delete', 'MealController@delete');
+Route::get('/meal/{id}/confirm', 'MealController@confirm');
+Route::delete('/meal/{id}/delete', 'MealController@delete');
 
 # I think these were added and then I changed course, but leaving until I am sure removing them is okay.
 # By commenting them out, I can test and make sure nothing 'dies' - The controller doesn't have a
@@ -50,11 +50,12 @@ Route::any('/meal/{id}/delete', 'MealController@delete');
 
 # Form to add ingredients to a meals
 Route::get('meal/{id}/ingredients', 'IngredientController@ingredients');
+
 # Process the form to add ingredients to the meal
 Route::get('meal/{id}/add', 'IngredientController@add');
 Route::post('meal/add', 'IngredientController@store');
 
-Route::get('ingredient/{id}/delete','IngredientController@delete');
+Route::any('ingredient/{id}/delete','IngredientController@delete');
 
 #===============================================================================
 # SELECTIONS: (these are lists, but list is a reserved word)
@@ -74,8 +75,8 @@ Route::get('selections/{id}/edit', 'SelectionController@edit');
 Route::put('selections/{id}', 'SelectionController@updatelist');
 
 # Delete a specific selection
-Route::any('selections/{id}/confirm', 'SelectionController@confirm');
-Route::any('selections/{id}/delete', 'SelectionController@delete');
+Route::get('selections/{id}/confirm', 'SelectionController@confirm');
+Route::delete('selections/{id}/delete', 'SelectionController@delete');
 
 # Attach or Detach Meals to a Selection (Shopping List)
 Route::any('/selections/{id}/meals', 'SelectionController@maintain');

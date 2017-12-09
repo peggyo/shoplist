@@ -13,6 +13,7 @@
 @section('content')
     <h1>update Meal</h1>
     <form method='POST' action='/meal/create'>
+        {{ method_field('PUT') }}
         {{ csrf_field() }}
         <div class='form-group'>
             <label for='title'>Meal:</label>

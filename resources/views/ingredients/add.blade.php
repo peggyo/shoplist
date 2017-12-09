@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <h1>Add Ingredient for {{ $meal->title }}</h1>
+    <h1>Add Ingredients for {{ $meal->title }}</h1>
     <hr>
     <form method='POST' action='/meal/add'>
         {{ csrf_field() }}

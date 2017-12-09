@@ -16,7 +16,6 @@
             <label for='title'>Meal:</label>
             <input name='title' id='title' type='text' value=''>
             <!--<span class="hint">(Required)</span>-->
-
             <label for='description'>Description:</label>
             <input name='description' id='description' type='text' value=''>
          </div>

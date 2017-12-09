@@ -80,7 +80,7 @@ class MealController extends Controller
         $meal = Meal::find($id);
         #dd($meal);
         if (!$meal) {
-            return redirect('/meal')->with('alert', 'Meal not found');
+            return redirect('/')->with('alert', 'Meal not found');
         }
         $title = $meal->title;
         #dump($title);
@@ -99,7 +99,7 @@ class MealController extends Controller
         $meal = Meal::find($id);
         #dd($meal);
         if (!$meal) {
-            return redirect('/meal')->with('alert', 'Meal not found');
+            return redirect('/')->with('alert', 'Meal not found');
         }
         $title = $meal->title;
         #dd($title);

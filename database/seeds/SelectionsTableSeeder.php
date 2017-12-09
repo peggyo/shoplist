@@ -13,9 +13,9 @@ class SelectionsTableSeeder extends Seeder
     public function run()
     {
          $selections = [
-             ['List One'],
-             ['List Two'],
-             ['List Three']
+             ['Quick Meals'],
+             ['Dec. 10 Ideas'],
+             ['Freezer Meals']
          ];
 
          $count = count($selections);
