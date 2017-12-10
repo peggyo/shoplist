@@ -9,10 +9,12 @@
 @endsection
 
 @section('content')
-    <h1>Items to Buy</h1>
-    <p></p>
-    <hr>
-    <div class='ingredlist'>
+    <div class='mainlist'>
+        <section  class='pageheader'>
+            <h1>Items to Buy</h1>
+            <p></p>
+            <hr>
+        </section>
         @if(isset($ingredients))
             @foreach($ingredients as $key => $ingredient)
                 <p>{{ $ingredient['title'].', '.$ingredient['quantity'].' '.$ingredient['unit'].' '}}

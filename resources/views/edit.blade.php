@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+<div class='mainlist'>
     <h1>Edit Meal</h1>
     <form method='POST' action='/meal/{{ $meal->id }}'>
         <!-- use method spoofing to replace POST with PUT -->
@@ -17,16 +18,11 @@
         <!-- handles CSRF protection -->
         {{ csrf_field() }}
 
-        <div class='form-group'>
-            <label for='title'>Meal:</label>
-            <input name='title' id='title' type='text' value='{{ old('title', $meal->title) }}'>
-            <!--<span class="hint">(Required)</span>-->
-
-            <label for='description'>Description:</label>
-            <input name='description' id='description' type='text'value='{{ old('description', $meal->description) }}'>
-         </div>
-
-         <input type='submit' value='Save Changes'/>
+        <label for='title'>Meal:</label>
+        <input name='title' id='title' type='text' size='28' placeholder='Meal name (required)' value='{{ old('title', $meal->title) }}'>
+        <label for='description'>Description:</label>
+        <input name='description' id='description' type='text' size='80' placeholder='Description (required)' value='{{ old('description', $meal->description) }}'>
+        <input type='submit' class='button' value='Save Changes'/>
     </form>
 
     @if(isset($title))
@@ -39,5 +35,5 @@
             @endforeach
         </ul>
     @endif
-
+<div class='mainlist'>
 @endsection

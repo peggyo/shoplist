@@ -8,7 +8,6 @@
     Edit Meal
 @endsection
 
-<!-- IN PROGRESS. THIS IS TO EDIT AN EXISTING MEAL, BUT CODE FOR NOW IS MAINLY FROM CREATE A MEAL  -->
 
 @section('content')
     <h1>update Meal</h1>
@@ -17,14 +16,14 @@
         {{ csrf_field() }}
         <div class='form-group'>
             <label for='title'>Meal:</label>
-            <input name='title' id='title' type='text' value=''>
+            <input name='title' id='title' type='text'  size='28' placeholder='Meal name (required)' type='text' value='{{ old('title', $meal->title) }}' >
             <!--<span class="hint">(Required)</span>-->
 
             <label for='description'>Description:</label>
-            <input name='description' id='description' type='text' value=''>
+            <input name='description' id='description' type='text' size='80' placeholder='Description (required)' value='{{ old('description', $meal->description))>
          </div>
 
-         <input type='submit'/>
+         <input type='submit'  class='button' />
     </form>
 
     @if(isset($title))

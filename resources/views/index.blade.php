@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
-    <h1>What's for Dinner?</h1>
 
     @if (count($meals) === 0)
         <h4>There are no meals to show.</h4>
