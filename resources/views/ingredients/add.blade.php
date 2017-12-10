@@ -22,7 +22,7 @@
             <input name='quantity' id='quantity' type='number' size='10' placeholder='#.##' value='{{ old('quantity') }}'>
 
             <label for='unit'>Unit:</label>
-            <input name='unit' id='unit' type='text'  size='30' placeholder='(Oz, Cup, Jar, Bunch, Clove...)' value='{{ old('unit') }}' value=''>
+            <input name='unit' id='unit' type='text'  size='30' placeholder='(Oz, Cup, Jar, Bunch, Clove...)' value='{{ old('unit') }}'>
 
             <select name='department' id='department'>
                <option value='Grocery' {{ old('department') == 'Grocery' ? 'selected' : '' }} >Grocery</option>

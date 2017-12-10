@@ -10,11 +10,8 @@
 
 @section('content')
     <div class='mainlist'>
-        <section  class='pageheader'>
-            <h1>Items to Buy</h1>
-            <p></p>
-            <hr>
-        </section>
+        <h1>Items to Buy:</h1>
+        <hr>
         @if(isset($ingredients))
             @foreach($ingredients as $key => $ingredient)
                 <p>{{ $ingredient['title'].', '.$ingredient['quantity'].' '.$ingredient['unit'].' '}}

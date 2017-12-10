@@ -19,7 +19,6 @@
             <!-- handles CSRF protection -->
             {{ csrf_field() }}
 
-             <div class='form-group'>
              <label for='title'>List:</label>
              <input name='title' id='title' type='text'  size='28' placeholder='List name (required)' value='{{ old('title', $selection->title) }}'>
              <input type='submit'  class='button' value='Save Changes'/>

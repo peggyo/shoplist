@@ -25,15 +25,15 @@
         <input type='submit' class='button' value='Save Changes'/>
     </form>
 
-    @if(isset($title))
-        <h4>Changed meal name to {{ $title }}.</h4>
-    @endif
-    @if(count($errors) > 0)
-        <ul class='error-group'>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-<div class='mainlist'>
+        @if(isset($title))
+            <h4>Changed meal name to {{ $title }}.</h4>
+        @endif
+        @if(count($errors) > 0)
+            <ul class='error-group'>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
 @endsection
