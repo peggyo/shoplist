@@ -1,0 +1,278 @@
+body	{
+	font-size:	1em;
+	font-family: times, Times New Roman, times-roman, georgia, serif;	/***/
+	font-size-adjust:	.52;
+    background-color: #d1e8e2;
+	color: #116466;
+	}
+
+.button {
+  display: inline-block;
+  border-radius: 6px;
+  /*background-color: #e8db9b;*/
+  background-color: #e6e0cc;
+  border: 1px solid #2c3531;
+  color: #2c3531;
+  text-align: center;
+}
+
+header {
+    width: 98%;
+    background-color: #d1e8e2; /*background-color;*/
+    height: 20%;
+    display: inline-block;
+    padding-top: 1%;
+}
+
+.alert {
+	width: 90%;
+	/*background-color: #ffcb9a; */
+	background-color: #e6e0cc;
+	color: #116466;
+}
+
+
+.app_head {
+    width: 90%;
+    float: left;
+    clear: right;
+    font-size: small;
+    display: inline-block;
+}
+
+.app_head h1 {
+    padding-left: 2%;
+    font-size: 4em;
+    font-style: italic;
+    font-weight: bold;
+    display: inline-block;
+    width: 60%;
+}
+
+.app_imgleft {
+    width: 16%;
+    height: auto;
+    float: left;
+    display: inline-block;
+    padding-bottom: .5%;
+    padding-left: 1%;
+    box-shadow: 4px -4px 4px rgba(0,0,0,.5);
+}
+
+.app_imgright {
+    width: 13%;
+    height: auto;
+    float: right;
+    display: inline-block;
+}
+
+hr {
+	color: #116466;
+}
+
+header hr {
+    /*border-top : 3px double;*/
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    clear: both;
+    height: 3px;
+	border: 0;
+	box-shadow: 0 3px 3px -10px #8c8b8b inset;
+	}
+
+a:link, a:visited, a:hover, a:active {
+	color: #116466;
+}
+
+a:active, a:hover {
+	font-weight: bold;
+}
+
+nav {
+    clear:both;
+}
+
+ul#sitenav {
+  clear: both;
+  list-style: none;
+  font-weight: bold;
+  color: #1e1e1e;
+  /*background-color: white;*/
+  margin-top: .5em;
+  margin-right: 5%;
+  margin-bottom: .5em;
+  margin-left: 10%;
+  width: 90%;
+  padding-left: 1%;
+}
+
+ul#sitenav li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 13%;
+  border: none;
+  margin-right: 3px;
+  text-align: center;
+  font-variant: small-caps;
+  text-transform: none;
+  font-weight: 100;
+  margin-bottom: 0;
+}
+
+ul#sitenav a {
+  padding: 0.5em;
+  margin-right: 0;
+  /*background-color: white;*/
+  width: 12%;
+
+}
+
+ul#sitenav a:link,
+ul#sitenav a:visited {
+  color: #4d635f;
+  text-decoration: none;
+}
+
+ul#sitenav a:hover {
+  color: #00303f;
+  text-decoration: underline;
+}
+ul#sitenav .active {  background-color: blue;}
+
+
+ul#sitenav a.onthispage {
+    background-color: white;
+    border-radius: .5em;
+	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #2c3531;
+}
+
+h4 {
+    margin-top: .5em;
+    margin-right: 0;
+    margin-bottom: .5em;
+    margin-left: 0;
+}
+
+h3 {
+    margin-top: .5em;
+    margin-right: 0;
+    margin-bottom: .5em;
+    margin-left: 0;
+    padding: 0;
+}
+
+div.mainlist {
+	margin-left: 12%;
+	margin-right: 12%;
+    width: 70%;
+}
+
+div.duoleft {
+    float: left;
+    width: 40%;
+    font-size: medium;
+	margin-left: 8%;
+}
+
+div.duoright {
+    float: right;
+    width: 40%;
+    font-size: medium;
+	margin-right: 8%;
+}
+
+div.ingredlist {
+  float: right;
+  width: 85%;
+}
+
+div.mainlist hr {
+    width: 96%;
+    margin-top: 1%;
+    margin-right: 5%;
+    margin-left: 0;
+    margin-bottom: auto;
+}
+
+div.mainlist h2,
+div.mainlist h3,
+div.mainlist h4,
+div.mainlist h5  {
+	color: #116466;
+}
+
+div.mainlist a {
+    color: blue;
+    font-size: small;
+    padding-top: 0;
+    padding-right: 4em;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+div.mainlist a:link,
+div.mainlist a:visited,
+div.mainlist a:hover,
+div.mainlist a:active {
+	color: #116466;
+}
+
+div.mainlist a:active,
+div.mainlist a:hover {
+	font-weight: bold;
+}
+
+.pageheader {
+	color: #2c3531;
+}
+
+div.detaillist a {
+    color: blue;
+    font-size: small;
+    padding-top: 0;
+    padding-right: 4em;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+div.detaillist hr {
+    width: 80%;
+    margin-top: 1%;
+    margin-right: 5%;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+
+div.detaillist a:link,
+div.detaillist a:visited,
+div.detaillist a:hover,
+div.detaillist a:active {
+	color: #116466;
+}
+
+div.detaillist a:active,
+div.detaillist a:hover {
+	font-weight: bold;
+}
+
+/* For printing a shopping list's ingredients: */
+@media print {
+	header {
+		display: none;
+	}
+
+    body {
+        font-size: .75em;
+        color: black;
+        background-color: white;
+		margin-top: 5%;
+		margin-left: 5%;
+		margin-right: 5%;
+    }
+}
