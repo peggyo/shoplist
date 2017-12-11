@@ -7,7 +7,6 @@
     </title>
 
 	<meta charset='utf-8'>
-		< link rel="shortcut icon" href="{{ asset('favicon.ico') }}" >
 		<link href="/css/mealprod1.css" type='text/css' rel='stylesheet'>
 
     @stack('head')
