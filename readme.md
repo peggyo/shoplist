@@ -5,6 +5,7 @@
 
 for localhost, from my Windows httpd.conf file:
 
+```
 DocumentRoot "C:/xampp/htdocs/shoplist/public"
-
 <Directory "C:/xampp/htdocs/shoplist/public">
+```
