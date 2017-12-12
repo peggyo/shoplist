@@ -4,17 +4,12 @@
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
+| Explanation from foobooks:
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group.
 |
 */
-
-# Commenting out but leaving for review purposes
-#Route::get('/', function () {
-#    return view('index');
-#});
 
 #===============================================================================
 # MEALS:
@@ -39,11 +34,6 @@ Route::put('/meal/{id}/edit','MealController@edit');
 Route::get('/meal/{id}/confirm', 'MealController@confirm');
 Route::delete('/meal/{id}/delete', 'MealController@delete');
 
-# I think these were added and then I changed course, but leaving until I am sure removing them is okay.
-# By commenting them out, I can test and make sure nothing 'dies' - The controller doesn't have a
-# detail method, so that's pretty certain, but less certain about update.
-#Route::post('/meal/{id}/update/', 'MealController@update');
-#Route::get('/meal/{id}/detail/', 'MealController@detail');
 
 #===============================================================================
 # INGREDIENTS:

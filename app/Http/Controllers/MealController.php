@@ -9,7 +9,6 @@ use App\Selection;
 
 class MealController extends Controller
 {
-    //
 
     /*
      *  Show an index of meals. Currently this lists all meals in the database.
@@ -22,7 +21,7 @@ class MealController extends Controller
         return view('index')->with([
             'meals' => $meals
         ]);
-        #return 'Here is the list of meals...';
+
     }
 
     /*
@@ -52,7 +51,7 @@ class MealController extends Controller
         $meal->title = $request->input('title');
         $meal->description = $request->input('description');
         $meal->save();
-        #dump($meal->toArray());
+
         return view('create')->with([
             'title' => $title
         ]);
@@ -78,12 +77,12 @@ class MealController extends Controller
     {
 
         $meal = Meal::find($id);
-        #dd($meal);
+
         if (!$meal) {
             return redirect('/')->with('alert', 'Meal not found');
         }
         $title = $meal->title;
-        #dump($title);
+
         return view('delete')->with([
             'meal' => $meal,
             'previousUrl' => url()->previous() == url()->current() ? '/' : url()->previous(),
@@ -97,16 +96,15 @@ class MealController extends Controller
     public function delete($id)
     {
         $meal = Meal::find($id);
-        #dd($meal);
+
         if (!$meal) {
             return redirect('/')->with('alert', 'Meal not found');
         }
         $title = $meal->title;
-        #dd($title);
 
         # Must also delete any associated Ingredients
         $ingredients = Ingredient::where('meal_id', '=', $id);
-        #dd($ingredients);
+
         $ingredients->delete();
         $meal->selections()->detach();
         $meal->delete();
@@ -131,11 +129,5 @@ class MealController extends Controller
 
         return redirect('/meal/'.$id.'/edit')->with('alert', 'Your changes were saved.');
     }
-
-
-
-/**************************************************************************/
-
-
 
 }

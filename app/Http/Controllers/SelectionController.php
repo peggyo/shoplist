@@ -31,7 +31,7 @@ class SelectionController extends Controller
      */
     public function createlist()
     {
-        #dd('SelectController create');
+
         return view('selections/createlist');
 
     }
@@ -41,7 +41,7 @@ class SelectionController extends Controller
      */
     public function storelist(Request $request)
     {
-        #dump($request);
+
         $this->validate($request, [
            'title' => 'required|min:5'
        ]);
@@ -53,7 +53,7 @@ class SelectionController extends Controller
 
         $selection->title = $request->input('title');
         $selection->save();
-        #dump($selection->toArray());
+
         return view('selections.createlist')->with([
             'title' => $title
         ]);
@@ -132,7 +132,7 @@ class SelectionController extends Controller
     */
     public function maintain($id)
     {
-        #dump($id);
+
         # array to hold meal for those in the selection. Used to find meals both not in this selection AND in no selection.
         $inmealsarr = [];
 
@@ -186,7 +186,7 @@ class SelectionController extends Controller
     */
     public function shoplist($id)
     {
-        #dump($id);
+
         # array to hold meal for those in the selection. Used to find meals both not in this selection AND in no selection.
         $inmealsarr = [];
 
@@ -203,8 +203,6 @@ class SelectionController extends Controller
                 $ingredient->quantity += 0;
             }
         }
-
-        #dd($ingredients->toArray());
 
         return view('selections.shoplist')->with(['ingredients' => $ingredients]);
 

@@ -7,7 +7,7 @@
     </title>
 
 	<meta charset='utf-8'>
-		<link href="/css/mealprod1.css" type='text/css' rel='stylesheet'>
+		<link href="/css/mealprod2.css" type='text/css' rel='stylesheet'>
 
     @stack('head')
 
@@ -40,8 +40,7 @@
 		@yield('content')
 	</section>
 
-	<footer class='copyright'>
-		<!--&copy; {{ date('Y') }}-->
+	<footer>
 	</footer>
 
     @stack('body')

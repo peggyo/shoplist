@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@push('head')
-    <!--<link href='/css/whoknows?.css' rel='stylesheet'>-->
-@endpush
-
 @section('title')
     Add a Meal
 @endsection

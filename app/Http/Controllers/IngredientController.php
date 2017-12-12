@@ -15,7 +15,6 @@ class IngredientController extends Controller
     public function ingredients($id)
     {
         $meal = Meal::find($id);
-        #dump($meal);
 
         $ingredients = Ingredient::where('meal_id','=',$id)->get();
 
@@ -64,7 +63,6 @@ class IngredientController extends Controller
         $meal_id = $request->input('meal_id');
         #dump($meal_id);
         $meal = Meal::where('id', '=', $meal_id)->first();
-        #$title = $request->input('title');
 
         # Instantiate a new Meal Model object
         $ingredient = new Ingredient();
